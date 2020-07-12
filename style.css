@@ -31,9 +31,12 @@ header h2 {
 }
 
 .concepts {
-    width: 90%;
-    margin: 0 auto 20px;
+    border-left: 3px solid cadetblue;
+    background-color: rgb(226, 236, 236);
+    width: 95%;
     max-width: 600px;
+    margin: 0 auto 20px;
+    padding: 10px;
 }
 
 .concepts p {
