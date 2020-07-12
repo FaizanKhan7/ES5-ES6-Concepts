@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: aliceblue;
+    font-family: 'Roboto', sans-serif;
+}
+
+span {
+    text-transform: uppercase;
+    background-color: yellow;
+    padding: 0 4px;
+    line-height: 1.5;
+}
+
+header {
+    text-align: center;
+    margin: 10px;
+}
+
+header h1 {
+    margin: 10px 0 20px;
+    text-transform: uppercase;
+}
+
+header h2 {
+    margin: 0 30px;
+}
+
+.concepts {
+    width: 90%;
+    margin: 0 auto 20px;
+    max-width: 600px;
+}
+
+.concepts p {
+    line-height: 1.5;
+    margin-top: 5px;
+}

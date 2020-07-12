@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+    <title>ES6</title>
+</head>
+
+<body>
+    <header>
+        <h1>lets learn <span>javascript</span></h1>
+        <h2>Some basic concepts on <span>es5</span> & <span>es6</span></h2>
+        <p>(Find examples on each concept in script file)</p>
+    </header>
+
+    <main>
+        <div class="concepts">
+            <h2>
+                Difference between <span>var</span> <span>const</span> &
+                <span>let</span>
+            </h2>
+            <p>
+                <span>var is function scoped</span> and if we try to use a variable declared with <span>var</span> before the actual declaration, we'll get <span>undefinied</span> & if we try to reference a variable which is neither declared nor defined.
+                When we try to reference such variable then the result will be <span>not defined</span>.
+            </p>
+            <p>
+                <span>Const & let are blocked scoped</span> and if we try to use a variable declared with <span>let</span> or <span>const</span> before the declaration, it will throw a reference error.
+                <p>Hence, variables declared with <span>let</span> can be re-assigned, but variables declared with <span>const</span> cannot be reassigned.</p>
+            </p>
+        </div>
+        <div class="concepts">
+            <h2>
+                Difference between <span>function scope</span> &
+                <span>block scope</span>
+            </h2>
+            <p>In <span>function scope</span>, the variables and functions defined inside a function block are not accessible outside its block.</p>
+            <p>Variables declared with the var keyword cannot have <span>Block Scope</span>. A <span>block scope</span> is the area within <span>if statements</span>, <span>switch conditions</span> or <span>for & while loops</span>. Whenever we see {curly
+                brackets}, it is a block. In <span>ES6</span>, <span>const and let</span> keywords allow us to declare variables in the <span>block scope</span>, which means those variables exist only within the corresponding block.</p>
+
+        </div>
+        <div class="concepts">
+            <h2>
+                Difference between ES5 <span>function</span> & ES6
+                <span>Arrow function</span>
+            </h2>
+            <p>Basically, a JavaScript <span>function</span> is a block of code designed to perform a particular task. A JavaScript <span>function</span> is executed when "something" invokes it (calls it).</p>
+            <p>An <span>arrow function</span> expression is a alternative to a regular <span>function expression</span>.</p>
+            <p>The only difference between a regular <span>function</span> & <span>arrow function</span> is that, we don't use function keyword for <span>arrow function</span> & before we return the expression we add fat arrow <span>=></span>.</p>
+        </div>
+        <div class="concepts">
+            <h1><span>Destructuring</span></h1>
+            <p>The <span>destructuring assignment</span> syntax is a JavaScript expression that makes it possible to <span>unpack values</span> from <span>arrays</span>, or <span>properties from objects</span>, into distinct <span>variables</span>.</p>
+        </div>
+    </main>
+    <script src="main.js"></script>
+</body>
+
+</html>
