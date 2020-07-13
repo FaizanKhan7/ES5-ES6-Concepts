@@ -6,7 +6,7 @@
 
 body {
     background-color: aliceblue;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
 }
 
 span {
@@ -32,14 +32,15 @@ header h2 {
 
 .concepts {
     border-left: 3px solid cadetblue;
-    background-color: rgb(226, 236, 236);
+    /* background-color: rgb(226, 236, 236); */
     width: 95%;
-    max-width: 600px;
+    max-width: 680px;
     margin: 0 auto 20px;
     padding: 10px;
 }
 
 .concepts p {
-    line-height: 1.5;
+    font-size: 20px;
+    line-height: 32px;
     margin-top: 5px;
 }

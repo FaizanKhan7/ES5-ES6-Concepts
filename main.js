@@ -176,6 +176,39 @@ console.log(movie + ' movie has a rating of ' + rating);
 console.log(`${movie} movie has a rating of ${rating}`);
 
 
+// Rest and Spread operator
+
+// REST PARAMETERS
+const primeNumbers = [2, 3, 5, 7, 9];
+
+console.log(Math.max(...primeNumbers));
+
+// another example
+function questions(q1, q2, q3, ...moreQuestions) {
+    console.log('what is', q1);
+    console.log('what is', q2);
+    console.log('what is', q3);
+    console.log('what are', moreQuestions);
+}
+
+questions('JS?', 'React?', 'Angular?', 'PHP', 'Python', 'Rust', 'Java');
+
+// SPREAD OPERATOR
+let games1 = ['Call Of Duty', 'Counter Strike', 'Fortnite', 'Gunslinger'];
+let games2 = ['Devil May Cry', 'Assassin\'s Creed', 'Prototype', 'Fifa20'];
+
+games1 = [...games1, ...games2];
+
+console.log(games1);
+
+// another example
+function multiplyValues(ab, bc, cd) {
+    return ab * bc * cd;
+}
+
+const matchNums = [2, 3, 4];
+console.log(multiplyValues(...matchNums)); //24
+
 // DESTRUCTURING
 
 // DESTRUCTURING - Array
