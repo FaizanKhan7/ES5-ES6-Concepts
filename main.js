@@ -250,3 +250,185 @@ const { firstName, lastName, age, interests, homeAddress: { country } } = learne
 console.log(firstName, lastName, age, interests[0], country);
 
 console.log(`${firstName} ${lastName} aged ${age}, has shown interest in ${interests[0]} and he is from ${country}`);
+
+// HIGHER ORDER ARRAY METHODS
+
+const WorkoutSchedule = [{
+        day: 'Monday',
+        workout: 'Chest',
+        variations: 7,
+        preWorkOutProtein: 'A Bananna and 2 eggs',
+        postworkoutProtein: 'Hammer Protein shake, 4 eggs & a bannana',
+        workoutCompleted: true,
+        breakfast: '4 slices of brown bread with a peanut butter, and some vegetables',
+        lunch: '1 apple, some milk shake, with a rice meal',
+        dinner: 'A chicken tikka masala, vegetables'
+    },
+    {
+        day: 'Tuesday',
+        workout: 'Biceps',
+        variations: 8,
+        preWorkOutProtein: 'A Bananna and Hammer Protein shake',
+        postworkoutProtein: 'Hammer Protein shake, green vegetables',
+        workoutCompleted: true,
+        breakfast: '2 slices of brown bread with a peanut butter, and a Tuna fish',
+        lunch: 'some fruit & milk shake',
+        dinner: 'Briyani with some dessert'
+    },
+    {
+        day: 'Wednesday',
+        workout: 'Sholders',
+        variations: 10,
+        preWorkOutProtein: 'A Bananna and Hammer Protein shake',
+        workoutCompleted: false,
+        postworkoutProtein: 'Hammer Protein shake, fruits',
+        breakfast: '4 slices of brown bread with a peanut butter, some meat',
+        lunch: 'some green vegetables & milk shake',
+        dinner: 'Anything with some dessert'
+    },
+    {
+        day: 'Thrusday',
+        workout: 'Lads',
+        variations: 6,
+        preWorkOutProtein: 'A Bananna and Fruits',
+        postworkoutProtein: 'Hammer Protein shake, some fish',
+        workoutCompleted: false,
+        breakfast: 'vegetables and rice',
+        lunch: '1 bananna, chiken nuggets & milk shake',
+        dinner: 'Anything with some dessert'
+    },
+    {
+        day: 'Friday',
+        workout: 'Triceps',
+        variations: 6,
+        preWorkOutProtein: 'A Bananna and some green vegetable',
+        postworkoutProtein: 'Hammer Protein shake & brown bread',
+        workoutCompleted: true,
+        breakfast: 'Fruits and rice',
+        lunch: 'chiken burgers & milk shake',
+        dinner: 'chicken tikka masala with some dessert'
+    },
+    {
+        day: 'Saturday',
+        workout: 'Legs',
+        variations: 8,
+        preWorkOutProtein: 'A Bananna, Protein & brown bread',
+        postworkoutProtein: 'Hammer Protein shake & vegitables',
+        workoutCompleted: true,
+        breakfast: 'chiken nuggets and rice',
+        lunch: 'fruits & milk shake',
+        dinner: 'Anything with some dessert'
+    },
+    {
+        day: 'Sunday',
+        workout: 'no workout - Rest day',
+        variations: false,
+        preWorkOutProtein: false,
+        postworkoutProtein: false,
+        workoutCompleted: false,
+        breakfast: 'Some light food',
+        lunch: 'fruits, vegetables & milk shake',
+        dinner: 'Anything with some dessert'
+    },
+];
+
+// forEach()
+WorkoutSchedule.forEach(function(today) {
+    console.log(today.workout);
+});
+//we loop throught that array and we get each workout of the day
+
+WorkoutSchedule.forEach(function(breakfast) {
+    console.log(`${breakfast.day}'s breakfast is ${breakfast.breakfast}`)
+});
+
+WorkoutSchedule.forEach((dinner) => {
+    console.log(dinner.dinner);
+})
+
+WorkoutSchedule.forEach((preWorkout) => {
+    console.log(preWorkout.preWorkOutProtein);
+})
+
+WorkoutSchedule.forEach((postWorkout) => {
+    console.log(postWorkout.postworkoutProtein)
+})
+
+
+// map()
+const variationArray = WorkoutSchedule.map(function(variations) {
+    return variations.variations;
+});
+
+console.log(variationArray);
+// returns an whole new array of only variations
+
+const workoutDays = WorkoutSchedule.map((days) => {
+    return days.day;
+})
+
+console.log(workoutDays);
+// returns an whole new array of only days
+
+const food = WorkoutSchedule.map((foodItems) => {
+    return (`I'll have ${foodItems.breakfast} as breakfast on ${foodItems.day}, lunch as ${foodItems.lunch} & ${foodItems.dinner} on Dinner`);
+})
+
+console.log(food);
+// returns an whole new array of breakfast, lunch & dinner on each day
+
+
+// filter()
+
+const completedWorkout = WorkoutSchedule.filter(function(completed) {
+    return completed.workoutCompleted;
+});
+console.log(completedWorkout);
+//it's gonna only return array of true, which is completed
+
+const notCompletedWorkout = WorkoutSchedule.filter(function(tired) {
+    return tired.workoutCompleted === false;
+}).map(function(workout) {
+    return workout.workout;
+})
+
+console.log(notCompletedWorkout);
+// it's gonna  return an array of false, which is notCompleted & we are also chaining it with map method where its returning the workout which is false or which is notCompleted.
+
+
+// sort
+// lets say we want to sort variations from ascending to descending order
+const sortVariation = WorkoutSchedule.sort(function(s1, s2) {
+    if (s1.variations > s2.variations) {
+        return 1;
+    } else {
+        return -1;
+    }
+});
+
+console.log(sortVariation);
+// we get sorted array of variations from ascending to descending order
+
+
+// EASIEST WAY
+const sortedVariation = WorkoutSchedule.sort((a, b) => (a.variations < b.variations ? 1 : -1));
+console.log(sortedVariation);
+// we get sorted array of variations from descending to ascending order
+
+
+// reduce
+
+// lets say we want to add all the variations of whole week
+
+// regular function
+// const totalVariations = WorkoutSchedule.reduce(function(total, variation) {
+//     return total + (variation.variations);
+// }, 0);
+
+// console.log(totalVariations);
+
+// arrow function
+const totalVariations = WorkoutSchedule.reduce((total, variation) =>
+    total + (variation.variations), 0);
+
+console.log(totalVariations);
