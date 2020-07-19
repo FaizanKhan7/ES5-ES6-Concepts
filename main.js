@@ -38,6 +38,49 @@ score = 20;
 console.log(score);
 //20
 
+// Value v/s Reference 
+/*
+If the value is a primitive value, when you access the variable, you manipulate the actual value stored in that variable. In other words, the variable that stores a primitive value is accessed by value.
+
+Unlike a primitive value, when you manipulate an object, you work on the reference of that object, rather than the actual object. It means a variable that stores an object is accessed by reference.
+
+ */
+
+//1.Value type copy
+
+let count = 10; //Declaring a variable count and initialize its value to 10.
+let counts = count; //Declaring another variable counts and assign it a value of the variable count. Internally, JavaScript engine copies the value stored in count into the location of counts.
+
+count = 20; //Assigning the variable count a new value
+
+// Since count and counts have no relationship, when you change the value stored in the counts variable, the value of the count variable doesn’t change.
+// console.log(count); // 20
+
+console.log(counts); //10
+
+
+// Another example
+let name = "John";
+
+let fullName = name;
+
+name = "John Doe";
+
+console.log(fullName); //John
+
+
+
+//2.Reference Copy
+
+var roleName = { name: 'Denver' }; //declaring a variable roleName that holds an object whose name property is 'Denver'.
+
+var listOfNames = roleName; //declaring another variable ListOfNames and assign the roleName variable to ListOfNames. Both roleName and ListOfNames are now referencing the same object on the heap.
+
+listOfNames.name = 'Berlin'; //modify the value stored in the name property of the object using the listOfNames variable.
+
+console.log(roleName.name); //Since both roleName and ListOfNames are referencing the same object, the change is also reflected if you access the object using the roleName variable.
+
+
 console.log('FUNCTION & ARROW FUNCTION (=>)');
 // FUNCTION
 
@@ -208,6 +251,76 @@ function multiplyValues(ab, bc, cd) {
 
 const matchNums = [2, 3, 4];
 console.log(multiplyValues(...matchNums)); //24
+
+// for..in statements
+/*The for...in statement iterates over all enumerable(countable) properties of an object that are keyed by strings (ignoring ones keyed by Symbols), including inherited enumerable properties. */
+
+const numberObject = {
+    a: 1,
+    b: 2,
+    c: 3
+}
+
+for (const numbers in numberObject) {
+    console.log(`${numbers}: ${numberObject[numbers]}`);
+}
+
+// for of loop
+// we dont have any ugly looking index, we just pass in the itirator and the object/array
+
+const aka = ['Professor', 'Berlin', 'Mascow', 'Nairobi'];
+
+aka.push('Rio');
+// console.log(aka);
+for (const alsoKnowAs of aka) {
+    console.log(alsoKnowAs); //we get all the values present in array of aka
+}
+
+// other array methods
+// isArray() - it determines whether the passed value is an Array and returns true or false value.
+console.log(Array.isArray(aka)); //true
+
+// join() - this method creates and returns a new string by concatenating all of the elements in an array, separated by commas or a specified separator string. If the array has only one item, then that item will be returned without using the separator.
+
+console.log(aka.join());
+// Professor,Berlin,Mascow,Nairobi,Rio
+console.log(aka.join(''));
+console.log(aka.join('-'));
+console.log(aka.join(' - '));
+
+// slice() - this method returns a shallow copy of a portion of an array into a new array object selected from start to end (end not included) where start and end represent the index of items in that array. The original array will not be modified.
+console.log(aka.slice(2));
+// ["Mascow", "Nairobi", "Rio"]
+console.log(aka.slice(0, 2));
+console.log(aka.slice(1, 4));
+
+// reverse()
+// console.log(aka.reverse());
+
+// splice() - this method changes the contents of an array by removing or replacing existing elements and/or adding new elements in place.
+aka.splice(5, 0, 'Helsinki')
+console.log(aka);
+
+aka.splice(0, 1, 'The Professor')
+console.log(aka);
+
+aka.splice(5, 0, 'Oslo')
+console.log(aka);
+
+
+// split() - The split() method divides a String into an ordered list of substrings, puts these substrings into an array, and returns the array.  The division is done by searching for a pattern; where the pattern is provided as the first parameter in the method's call.  
+
+const professorTold = `${aka[0]} told ${aka[1]}, to sing bella ciao`;
+console.log(professorTold);
+
+const sing = professorTold.split(' ');
+console.log(sing[4]);
+// caio
+
+const strCopy = professorTold.split();
+console.log(strCopy);
+// ["The Professor told Berlin, to sing bella ciao"]
+
 
 // DESTRUCTURING
 
@@ -418,7 +531,7 @@ console.log(sortedVariation);
 
 // reduce
 
-// lets say we want to add all the variations of whole week
+// lets say we want to add all the workout variations of whole week
 
 // regular function
 // const totalVariations = WorkoutSchedule.reduce(function(total, variation) {
